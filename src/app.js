@@ -52,6 +52,8 @@ const flipLeft = () => {
       galleryImgArr[i - 1] !== undefined
     ) {
       previousImgSrc = galleryImgArr[i - 1].dataset.source;
+    } else if (galleryImgArr[i - 1] === undefined) {
+      previousImgSrc = galleryImgArr[galleryImgArr.length - 1].dataset.source;
     }
   }
 
@@ -70,6 +72,10 @@ const flipRight = () => {
       galleryImgArr[i + 1] !== undefined
     ) {
       nextImgSrc = galleryImgArr[i + 1].dataset.source;
+      break;
+    } else if (galleryImgArr[i + 1] === undefined) {
+      console.log("GALLERY END");
+      nextImgSrc = galleryImgArr[0].dataset.source;
     }
   }
 
